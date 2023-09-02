@@ -3,7 +3,7 @@ const { Schema, model } = mongoose;
 
 const blogSchema = new Schema (
     {
-        url: String,
+        embedCode: String,
         date: String,
     },
     {

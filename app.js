@@ -23,7 +23,7 @@ app.use("/api", indexRoutes);
 
 // Handling the artworks route
 const artworksRouter = require ("./routes/artworks.routes");
-app.use("/api", isAuthenticated, artworksRouter);
+app.use("/api", artworksRouter);
 
 // Handling the blog route
 const blogRoute = require("./routes/blog.routes");
@@ -31,7 +31,11 @@ app.use("/api", blogRoute);
 
 // Handling the media
 const mediaRoute = require("./routes/media.routes");
-app.use("/api", isAuthenticated, mediaRoute);
+app.use("/api", mediaRoute);
+
+// Handling the subscription 
+const subscriptionRoute = require ("./routes/subscription.routes");
+app.use("/api", subscriptionRoute);
 
 // Handling the auth route
 const authRoutes = require("./routes/auth.routes");
