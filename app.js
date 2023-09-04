@@ -37,6 +37,10 @@ app.use("/api", mediaRoute);
 const subscriptionRoute = require ("./routes/subscription.routes");
 app.use("/api", subscriptionRoute);
 
+// Handling the biography
+const biographyRoute = require ("./routes/biography.routes");
+app.use("/api", biographyRoute);
+
 // Handling the auth route
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
