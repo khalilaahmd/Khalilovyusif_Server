@@ -23,7 +23,7 @@ app.use("/api", indexRoutes);
 
 // Handling the artworks route
 const artworksRouter = require ("./routes/artworks.routes");
-app.use("/api", artworksRouter);
+app.use("/api/api", artworksRouter);
 
 // Handling the blog route
 const blogRoute = require("./routes/blog.routes");
