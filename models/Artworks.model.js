@@ -4,12 +4,8 @@ const { Schema, model } = mongoose;
 const artworkSchema = new Schema (
     {
         postUrl: String,
-        selectFolder: String,
         postTitle: String,
         description: String,
-        location: String,
-        collaboration: String,
-        photographer: String
     },
     {
         timestamps: true

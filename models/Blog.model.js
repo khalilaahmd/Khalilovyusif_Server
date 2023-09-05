@@ -4,7 +4,6 @@ const { Schema, model } = mongoose;
 const blogSchema = new Schema (
     {
         embedCode: String,
-        date: String,
     },
     {
         timestamps: true

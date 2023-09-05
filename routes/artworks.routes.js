@@ -1,5 +1,6 @@
 const express = require ("express");
 const router = express.Router();
+const mongoose = require('mongoose');
 
 const Artwork = require ("../models/Artworks.model");
 
@@ -11,6 +12,20 @@ router.get ("/artworks", (req, res, next) => {
           .find()
           .then((artworksFromDB) => res.status(200).json(artworksFromDB))
           .catch((error) => next (error));
+});
+
+// GET "/api/artworks/:artworksId"
+router.get('/artworks/:artworksId', (req, res, next) => {
+    const { artworksId } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(artworksId)) {
+        res.status(400).json({ message: 'Specified Id is not valid'});
+        return;
+    }
+    Artwork
+         .findById(artworksId)
+         .then(artwork => res.status(200).json(artwork))
+         .catch(error => res.json(error));
 });
 
 // POST "/api/upload"
@@ -36,6 +51,20 @@ router.post("/artworks", (req, res, next) => {
         })
         .catch((error) => next(error));
      
+});
+
+// DELETE "/api/artworks/:artworksId"
+router.delete('/artworks/:artworksId', (req, res, next) => {
+    const { artworksId } = req.params;
+    
+    if (!mongoose.Types.ObjectId.isValid(artworksId)) {
+        res.status(400).json({ message: 'specified id is not valid'});
+        return;
+    }
+    Artwork
+           .findByIdAndRemove(artworksId)
+           .then(() => res.json({ message: `Artwork with ${artworkId} is removed successfully`}))
+           .catch(error => res.json(error));
 });
 
 module.exports = router;

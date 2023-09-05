@@ -6,6 +6,7 @@ const mediaSchema = new Schema (
         url: String,
         date: String,
         title: String,
+        mediaPicUrl: String,
     },
     {
         timestamps: true
