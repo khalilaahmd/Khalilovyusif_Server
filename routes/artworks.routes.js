@@ -53,6 +53,19 @@ router.post("/artworks", (req, res, next) => {
      
 });
 
+/// PUT "/api/artworks/:artworksId"
+router.put('/artworks/:artworksId', (req, res, next) => {
+    const { artworksId } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(artworksId)) {
+        res.status(400).json({ message: 'specified Id is not valid'});
+        return;
+    }
+    Artwork
+        .findByIdAndUpdate(artworksId, req.body, {new: true})
+        .then((updatedArtwork) => res.json(updatedArtwork))
+        .catch(error => res.json(error));
+})
+
 // DELETE "/api/artworks/:artworksId"
 router.delete('/artworks/:artworksId', (req, res, next) => {
     const { artworksId } = req.params;
