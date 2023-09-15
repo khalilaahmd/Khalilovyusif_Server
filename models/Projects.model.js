@@ -15,7 +15,7 @@ const projectSchema = new Schema(
             ]
         },
         title: String,
-        url: String,
+        postUrl: String,
     },
     {
         timestamps: true

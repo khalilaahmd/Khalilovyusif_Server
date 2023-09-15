@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const Artwork = require ("../models/Artworks.model");
 
-const fileUploader = require ("../config/cloudinary.config");
+const fileUploader = require ("../config/cloudinary.config.artwork");
 
 // GET 'api/artworks
 router.get ("/artworks", (req, res, next) => {
