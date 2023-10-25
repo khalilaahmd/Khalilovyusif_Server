@@ -145,7 +145,7 @@ router.get('/boutonniersAndGifts/:boutonniersAndGiftsId', (req, res, next) => {
 })
 
 // DELETE "/api/boutonniersAndGifts/:boutonniersAndGiftsId"
-router.delete('boutonniersAndGifts/:boutonniersAndGiftsId', (req, res, next) => {
+router.delete('/boutonniersAndGifts/:boutonniersAndGiftsId', (req, res, next) => {
     const { boutonniersAndGiftsId } = req.params;
     if (!mongoose.Types.ObjectId.isValid(boutonniersAndGiftsId)) {
         res.status(400).json({ message: 'specified id is not valid'});
@@ -184,7 +184,7 @@ router.get('/flowers/:flowersId', (req, res, next) => {
 })
 
 // DELETE "/api/flowers/:flowersId"
-router.delete('flowers/:flowersId', (req, res, next) => {
+router.delete('/flowers/:flowersId', (req, res, next) => {
     const { flowersId } = req.params;
     if (!mongoose.Types.ObjectId.isValid(flowersId)) {
         res.status(400).json({ message: 'specified id is not valid'});
@@ -223,7 +223,7 @@ router.get('/bouquets/:bouquetsId', (req, res, next) => {
 })
 
 // DELETE "/api/bouquets/:bouquetsId"
-router.delete('bouquets/:bouquetsId', (req, res, next) => {
+router.delete('/bouquets/:bouquetsId', (req, res, next) => {
     const { bouquetsId } = req.params;
     if (!mongoose.Types.ObjectId.isValid(bouquetsId)) {
         res.status(400).json({ message: 'specified id is not valid'});
